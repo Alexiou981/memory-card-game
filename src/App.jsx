@@ -16,7 +16,7 @@ const shuffle = (array) => {
 
 // Create deck with pairs (using 'context' as the card's value)
 const createDeck = () => {
-  const uniqueContexts = ["A", "B", "C", "D", "E"];
+  const uniqueContexts = ["A", "B", "C", "D", "E", "F"];
   let deck = [];
   let id = 1;
   uniqueContexts.forEach(context => {
@@ -58,10 +58,9 @@ function App() {
         setScore(prevScore => prevScore + 1);
         setSelectedCards([]);
       } else {
-        // They don't match: game over
-        setGameOver(true);
-        // Optionally, you could flip them back after a delay:
+        // They don't match: game over logic
         setTimeout(() => {
+          setGameOver(true);
           setCards(prevCards =>
             prevCards.map(c =>
               (c.id === first.id || c.id === second.id)
